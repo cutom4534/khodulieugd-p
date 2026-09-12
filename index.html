@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kho dữ liệu số Giáo dục địa phương</title>
+    <script>
+      // Workaround for formdata-polyfill trying to overwrite window.fetch which is a getter-only property in some environments
+      try {
+        if (typeof window !== 'undefined' && typeof window.fetch === 'function') {
+          Object.defineProperty(window, 'fetch', {
+            value: window.fetch,
+            writable: true,
+            configurable: true
+          });
+        }
+      } catch (e) {
+        console.warn('Could not make window.fetch writable', e);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+
